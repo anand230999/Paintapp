@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Paint with the mouse !</title>
+        <style>
+            #myCanvas {
+                border: 1px solid black;
+            }
+        </style>
+        <script>
+            var canvas, ctx, painting = false, previousMousePos, color = "black", width = 1;
+
+            function getMousePos(canvas, evt) {
+                var rect = canvas.getBoundingClientRect();
+                return {
+                    x: evt.clientX - rect.left,
+                    y: evt.clientY - rect.top
+                };
+            }
+
+            function drawLineImmediate(x1, y1, x2, y2) {
+                ctx.beginPath();
+                ctx.moveTo(x1, y1);
+                ctx.lineTo(x2, y2);
+                ctx.lineWidth = width;
+                ctx.strokeStyle = color;
+                ctx.stroke();
+            }
+
+            function pencil(){
+                color = "black";
+                width = 1;
+            }
+            function red(){
+                color = "RED";
+                width = 5;
+            }
+
+            function blue(){
+                color = "blue";
+                width = 5;
+            }
+
+            function green(){
+                color = "green";
+                width = 5;
+            }
+
+            function yellow(){
+                 color = "yellow";
+                 width = 5;
+            }
+
+            function eraser(){
+                 color = "white";
+                 width = 5;
+            }
+            function handleMouseMove(evt) {
+                var mousePos = getMousePos(canvas, evt);
+                if (painting) {
+                    drawLineImmediate(previousMousePos.x, previousMousePos.y,
+                            mousePos.x, mousePos.y);
+
+                    previousMousePos = mousePos;
+                }
+            }
+          
+            function clicked(evt) {
+                previousMousePos = getMousePos(canvas, evt);
+            }
+
+            function released(evt) {
+                painting = false;
+            }
+
+            function click(evt){
+                painting = true;
+            }
+
+            window.onload = function () {
+                canvas = document.getElementById('myCanvas');
+                ctx = canvas.getContext('2d');
+                painting = false;
+
+                canvas.addEventListener('mousemove', handleMouseMove, false);
+                canvas.addEventListener('dblclick', click);
+                canvas.addEventListener('mousedown', clicked);
+                canvas.addEventListener('mouseup', released);
+            };
+        </script>
+    </head>
+    <body>
+        <p> In order to use all butttons please double click and draw then to stop pencil please do a single click </p>
+    <aside>
+        <button onclick="pencil()">PENCIL</button>
+        <button onclick="eraser()">ERASER</button>
+        <button onclick="red()">RED</button>
+        <button onclick="blue()">BLUE</button>
+        <button onclick="green()">GREEN</button>
+        <button onclick="yellow()">YELLOW</yellow>
+    </aside>
+        <canvas id="myCanvas" width="400" height="400">
+        </canvas>
+    </body>
+</html>
