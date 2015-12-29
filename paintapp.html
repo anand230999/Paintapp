@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Paint with the mouse !</title>
+        <title>Simple Paint app</title>
         <style>
             #myCanvas {
-                border: 1px solid black;
+                border: 5px solid black;
             }
         </style>
         <script>
@@ -27,30 +27,18 @@
                 ctx.stroke();
             }
 
+            function clr(){
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+
             function pencil(){
                 color = "black";
                 width = 1;
             }
-            function red(){
-                color = "RED";
-                width = 5;
+            function colors(a){
+                 color = a;
+                 width = 10;
             }
-
-            function blue(){
-                color = "blue";
-                width = 5;
-            }
-
-            function green(){
-                color = "green";
-                width = 5;
-            }
-
-            function yellow(){
-                 color = "yellow";
-                 width = 5;
-            }
-
             function eraser(){
                  color = "white";
                  width = 5;
@@ -91,15 +79,64 @@
     </head>
     <body>
         <p> In order to use all butttons please double click and draw then to stop pencil please do a single click </p>
-    <aside>
-        <button onclick="pencil()">PENCIL</button>
-        <button onclick="eraser()">ERASER</button>
-        <button onclick="red()">RED</button>
-        <button onclick="blue()">BLUE</button>
-        <button onclick="green()">GREEN</button>
-        <button onclick="yellow()">YELLOW</yellow>
-    </aside>
-        <canvas id="myCanvas" width="400" height="400">
+        <button onclick="pencil()"style="float: right;">PENCIL </button>
+        <button onclick="eraser()"style="float: right;">ERASER</button>
+        <button onclick="clr()"style="float: right;">CLEAR</button>
+        <button onclick="rect()"style="float: right;">RECTANGLE</button>
+        <button onclick="circle()"style="float: right;">CIRCLE</button>
+<center>
+<table border=2 bgcolor=#FFFFFF align="left">
+<td><div onclick = "colors('#FF0000')" style ="width:20px;height:20px;background-color:#FF0000"></div><td>
+<td><div onclick = "colors('#0000FF')" style ="width:20px;height:20px;background-color:#0000FF"></div><td>
+<tr>
+<td><div onclick = "colors('#00FA9A')" style ="width:20px;height:20px;background-color:#00FA9A"></div><td>
+<td><div onclick = "colors('#FFFF00')" style ="width:20px;height:20px;background-color:#FFFF00"></div><td>
+</tr>
+<tr>
+<td><div onclick = "colors('#000000')" style ="width:20px;height:20px;background-color:#000000"></div><td>
+<td><div onclick = "colors('#000080')" style ="width:20px;height:20px;background-color:#000080"></div><td>
+</tr>
+<tr>
+<td><div onclick = "colors('#0000FF')" style ="width:20px;height:20px;background-color:#0000FF"></div><td>
+<td><div onclick = "colors('#006400')" style ="width:20px;height:20px;background-color:#006400"></div><td>
+</tr>
+<tr>
+<td><div onclick = "colors('##006400')" style ="width:20px;height:20px;background-color:#006400"></div><td>
+<td><div onclick = "colors('##008000')" style ="width:20px;height:20px;background-color:#008000"></div><td>
+</tr>
+<tr>
+<td><div onclick = "colors('#00BFFF')" style ="width:20px;height:20px;background-color:#00BFFF"></div><td>
+<td><div onclick = "colors('#00CED1')" style ="width:20px;height:20px;background-color:#00CED1"></div><td>
+</tr>
+<tr>
+<td><div onclick = "colors('#00FF00')" style ="width:20px;height:20px;background-color:#00FF00"></div><td>
+<td><div onclick = "colors('#00FFFF')" style ="width:20px;height:20px;background-color:#00FFFF"></div><td>
+</tr>
+<tr>
+<td><div onclick = "colors('#191970')" style ="width:20px;height:20px;background-color:#191970"></div><td>
+<td><div onclick = "colors('#1E90FF')" style ="width:20px;height:20px;background-color:#1E90FF"></div><td>
+</tr>
+<tr>
+<td><div onclick = "colors('#7B68EE')" style ="width:20px;height:20px;background-color:#7B68EE"></div><td>
+<td><div onclick = "colors('#7CFC00')" style ="width:20px;height:20px;background-color:#7CFC00"></div><td>
+</tr>
+<tr>
+<td><div onclick = "colors('#800000')" style ="width:20px;height:20px;background-color:#800000"></div><td>
+<td><div onclick = "colors('#800080')" style ="width:20px;height:20px;background-color:#800080"></div><td>
+</tr>
+<tr>
+<td><div onclick = "colors('#808000')" style ="width:20px;height:20px;background-color:#808000"></div><td>
+<td><div onclick = "colors('#808080')" style ="width:20px;height:20px;background-color:#808080"></div><td>
+</tr>
+<tr>
+<td><div onclick = "colors('#CD5C5C')" style ="width:20px;height:20px;background-color:#CD5C5C"></div><td>
+<td><div onclick = "colors('#FFA500')" style ="width:20px;height:20px;background-color:#FFA500"></div><td>
+</tr>
+<tr>
+<td><div onclick = "colors('#C0C0C0')" style ="width:20px;height:20px;background-color:#C0C0C0"></div><td>
+<td><div onclick = "colors('#FFFFFF')" style ="width:20px;height:20px;background-color:#FFFFFF"></div><td>
+</table></center>  
+    <canvas id="myCanvas" width="1024" height="768">
         </canvas>
     </body>
 </html>
